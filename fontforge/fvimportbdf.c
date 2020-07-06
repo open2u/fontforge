@@ -900,14 +900,14 @@ return( false );
     gf_skip_noops(gf,charname);
     ch = getc(gf);
     if ( ch==gf_boc ) {
-	/* encoding = */ getlong(gf);
+	/* encoding = */ enc = getlong(gf);
 	/* backpointer = */ getlong(gf);
 	min_c = getlong(gf);
 	max_c = getlong(gf);
 	min_r = getlong(gf);
 	max_r = getlong(gf);
     } else if ( ch==gf_boc1 ) {
-	/* encoding = */ getc(gf);
+	/* encoding = */ enc = getc(gf);
 	w = getc(gf);
 	max_c = getc(gf);
 	min_c = max_c-w+1;
