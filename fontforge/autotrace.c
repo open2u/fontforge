@@ -739,7 +739,7 @@ void MfArgsInit(void) {
 /* olive 2020.09.24
 *	mf_args = copy("\\scrollmode; mode=proof ; mag=2; input");
 */
-	mf_args = copy("\\mode=lexmarks; mag=2; input");
+	mf_args = copy("\\mode=lexmarks; mag=2; nonstopmode; input");
     }
 }
 
