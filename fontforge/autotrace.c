@@ -735,7 +735,12 @@ static void cleantempdir(char *tempdir) {
 
 void MfArgsInit(void) {
     if ( mf_args==NULL )
-	mf_args = copy("\\scrollmode; mode=proof ; mag=2; input");
+    {
+/* olive 2020.09.24
+*	mf_args = copy("\\scrollmode; mode=proof ; mag=2; input");
+*/
+	mf_args = copy("\\mode=lexmarks; mag=2; input");
+    }
 }
 
 static char *MfArgs(void) {
