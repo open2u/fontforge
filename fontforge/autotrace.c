@@ -56,7 +56,10 @@
 #include <sys/wait.h>		/* for waitpid */
 #endif
 
-int preferpotrace = false;
+/*Olive 
+ * int preferpotrace = false;
+ */
+ int preferpotrace = true;
 
 /* Interface to Martin Weber's autotrace program   */
 /*  http://homepages.go.com/~martweb/AutoTrace.htm */
@@ -203,7 +206,11 @@ static int mytempnam(char *buffer) {
     if ( (dir=getenv("TMPDIR"))!=NULL )
 	strcpy(buffer,dir);
 #ifndef P_tmpdir
-#define P_tmpdir	"/tmp"
+/*
+ * #define P_tmpdir	"/tmp"  
+ * #define P_tmpdir	"/mnt/ramdisk"
+ */
+#define P_tmpdir	"/tmp"  
 #endif
     else
 	strcpy(buffer,P_tmpdir);
@@ -752,7 +759,7 @@ static char *MfArgs(void) {
 	ret = ff_ask_string(_("Additional arguments for autotrace program:"),
 		mf_args,_("Additional arguments for autotrace program:"));
 	if ( ret==NULL )
-return( (char *) -1 );
+		return( (char *) -1 );
 	mf_args = ret;
 	SavePrefs(true);
     }
